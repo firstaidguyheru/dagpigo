@@ -18,7 +18,7 @@ type Client struct {
 var c = Client{}
 
 // Normal get request to get data with
-func httpGet(url string) []byte {
+func httpGet(url string) map[string]interface{} {
 	httpClient := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -36,10 +36,10 @@ func httpGet(url string) []byte {
 		log.Fatal(err)
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
-	jsonBody, _ := json.Marshal(body)
-
-	return jsonBody
+	var data map[string]interface{}
+	decoder := json.NewDecoder(resp.Body)
+	decoder.Decode(&data)
+	return data
 }
 
 // Attempting to get an image's buffer using a get request, can also be used as a normal get request
@@ -47,7 +47,7 @@ func getBuffer(url string) []byte {
 	httpClient := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	
 	req.Header.Add("Authorization", *c.auth)
@@ -66,19 +66,82 @@ func getBuffer(url string) []byte {
 }
 // Data
 
-// func wtp() {
-// 	data := httpGet("https://api.dagpi.xyz/data/wtp")
-	
-// 	type Data struct {
-// 		ablilities string
-// 		question string
-// 		answer string
-// 		link string
-// 		weight int
-// 		height int
-// 		affinity []string
-// 	}
-// }
+func WTP() interface{} {
+	// Returns an interface with all of the pokemon data
+	data := httpGet("https://api.dagpi.xyz/data/wtp")
+	return data
+}
+
+func Roast() interface{} {
+	// Returns an interface containing a roast
+	data := httpGet("https://api.dagpi.xyz/data/roast")
+	roast := data["roast"]
+	return roast
+}
+
+func Joke() interface{} {
+	// Returns an interface containing a joke & id
+	data := httpGet("https://api.dagpi.xyz/data/joke")
+	return data
+}
+
+func Fact() interface{} {
+	// Returns an interface containing a fact
+	data := httpGet("https://api.dagpi.xyz/data/fact")
+	fact := data["fact"]
+	return fact
+}
+
+func Eightball() interface{} {
+	// Returns an interface containing a response to 8ball question
+	data := httpGet("https://api.dagpi.xyz/data/8ball")
+	response := data["response"]
+	return response
+}
+
+func Yomama() interface{} {
+	// Returns an interface containing a description of yomama
+	data := httpGet("https://api.dagpi.xyz/data/yomama")
+	description := data["description"]
+	return description
+}
+
+func RandomWaifu() interface{} {
+	// Returns an interface containing data of a random waifu
+	data := httpGet("https://api.dagpi.xyz/data/waifu")
+	return data
+}
+
+func PickupLine() interface{} {
+	// Returns an interface containing category & joke
+	data := httpGet("https://api.dagpi.xyz/data/pickupline")
+	return data
+}
+
+func Waifu(waifu_name string) interface{} {
+	// Returns an interface containing data of a given waifu
+	data := httpGet("https://api.dagpi.xyz/data/"+waifu_name)
+	return data
+}
+
+func HeadLine() interface{} {
+	// Returns an interface containing text and a bool, 'fake'
+	data := httpGet("https://api.dagpi.xyz/data/headline")
+	return data
+}
+
+func GTL() interface{} {
+	// Returns an interface containing data of a random logo
+	data := httpGet("https://api.dagpi.xyz/data/logo")
+	return data
+}
+
+func Flag() interface{} {
+	// Returns an interface containing data of a random flag
+	data := httpGet("https://api.dagpi.xyz/data/flag")
+	return data
+}
+// END
 
 // Image Manipulation
 
