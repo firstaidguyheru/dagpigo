@@ -1,5 +1,3 @@
-module github.com/clvrk/dagpi.go
+module github.com/clvrk/dagpigo
 
 go 1.15
-
-require ()
