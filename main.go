@@ -1,4 +1,4 @@
-package dagpi
+package main
 
 import (
 	"encoding/json"
@@ -10,6 +10,7 @@ import (
 )
 
 func main() {}
+
 // Client Class/Struct
 type Client struct {
 	auth *string
