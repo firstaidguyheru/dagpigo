@@ -356,7 +356,6 @@ func Obama(url1 string, url2 string) []byte {
 }
 
 func Tweet(url string, username string, text string) []byte {
-	text = strings.ReplaceAll(text, "", "20%")
 	buffer := getBuffer("https://api.dagpi.xyz/image/tweet/?url="+url+"&username="+username+"&text="+text)
 	return buffer
 }
