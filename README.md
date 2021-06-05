@@ -4,7 +4,7 @@ Go wrapper for Dagpi API.
 [Discord](https://discord.gg/K4XC3QFhPM),
 [Docs](https://dagpi.docs.apiary.io/)
 
-## Functions - Data
+## Functions - Data | Returns Interface of Data
 * dagpi.WTP / Who's That Pokemon
 * dagpi.Roast
 * dagpi.Joke
@@ -18,7 +18,7 @@ Go wrapper for Dagpi API.
 * dagpi.GTL / Get The Logo
 * dagpi.Flag
 
-## Functions - Image Manip
+## Functions - Image Manip | Returns Image Buffer/Bytes []byte
 * dagpi.Pixelate(imageUrl: https://imghost.com/img) Do the same for all image manip funcs.
 * dagpi.Colors
 * dagpi.America
