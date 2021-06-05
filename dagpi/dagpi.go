@@ -9,8 +9,6 @@ import (
 	"strings"
 )
 
-func main() {}
-
 // Client Class/Struct
 type Client struct {
 	auth *string
