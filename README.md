@@ -1,6 +1,9 @@
 # dagpigo
 Go wrapper for Dagpi API.
 
+Initialize your client with 
+```var client = dagpi.Client{auth: "api token"}```
+
 [Discord](https://discord.gg/K4XC3QFhPM),
 [Docs](https://dagpi.docs.apiary.io/)
 
