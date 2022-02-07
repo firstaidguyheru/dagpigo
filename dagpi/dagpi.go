@@ -399,3 +399,28 @@ func Modernmeme(url string, text string) []byte {
 	buffer := getBuffer("https://api.dagpi.xyz/image/modernmeme/?url="+url+"&text="+text)
 	return buffer
 }
+
+func Elmo(url string) []byte {
+	buffer := getBuffer("https://api.dagpi.xyz/image/elmo/?url="+url)
+	return buffer
+}
+
+func Rain(url string) []byte {
+	buffer := getBuffer("https://api.dagpi.xyz/image/rain/?url="+url)
+	return buffer
+}
+
+func Tv(url string) []byte {
+	buffer := getBuffer("https://api.dagpi.xyz/image/tv/?url="+url)
+	return buffer
+}
+
+func Album(url string) []byte {
+	buffer := getBuffer("https://api.dagpi.xyz/image/allbum/?url="+url)
+	return buffer
+}
+
+func StaticGlitch(url string) []byte {
+	buffer := getBuffer("https://api.dagpi.xyz/image/static_glitch/?url="+url)
+	return buffer
+}
